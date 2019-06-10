@@ -7,11 +7,8 @@ require('../models/Postagem')
 const Postagem = mongoose.model("postagens")
 
 
-
-//Rotas
-
 router.get('/', (req,res)=>{
-  res.render("index")
+  res.render("admin/index")
 })
 router.get('/posts', (req,res)=>{
   res.send("Página de Posts")
