@@ -52,6 +52,20 @@ app.use(express.static(path.join(__dirname,"public")))
     })
  
   })
+
+  app.get("/postagem/:slug", (req,res)=>{
+    Postagem.findOne({slug: req.params.slug}).then((postagem)=>{
+if(postagem){
+  res.render("postagem/index", {postagem: postagem})
+}else{
+  req.flash("error_msg","Esta postagem não existe" )
+  res.redirect("/")
+}
+    }).catch((err)=>{
+      req.flash("error_msg", "Houve um erro interno")
+      res.redirect("/")
+    })
+  })
   app.get("/404", (req,res)=>{
     res.send("Erro 404!")
   })
