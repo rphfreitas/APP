@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const Shema = mongoose.Schema
+const Schema = mongoose.Schema
 
 const Usuario = new Schema({
     nome:{
@@ -9,6 +9,10 @@ const Usuario = new Schema({
     email:{
         type: String,
         require: true
+    },
+    eAdmin:{
+        type: Number,
+        default:0
     },
     senha: {
         type: String,

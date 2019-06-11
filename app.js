@@ -13,6 +13,7 @@ require("./models/Postagem")
 const Postagem= mongoose.model("postagens")
 require("./models/Categoria")
 const Categoria= mongoose.model("categorias")
+const usuarios = require("./routes/usuario")
 //Configurações
 //Sessão
 app.use(session({
@@ -99,6 +100,9 @@ if(postagem){
     res.send("Erro 404!")
   })
   app.use('/admin', admin)
+  app.use("/usuarios", usuarios)
+
+ 
 //Outros
 const Port = 8081
 app.listen(Port, ()=>{
