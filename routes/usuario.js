@@ -40,6 +40,7 @@ router.post("/registro",(req,res)=>{
                     nome: req.body.nome,
                     email:req.body.email,
                     senha:req.body.senha
+                    
                 })
 
 
@@ -74,7 +75,7 @@ router.get("/login", (req,res)=>{
 })
 
 router.post("/login", (req,res,next)=>{
-    
+
     passport.authenticate("local", {
         successRedirect: "/",
         failureRedirect:"/usuarios/login",
