@@ -86,6 +86,17 @@ if(postagem){
       res.redirect("/")
     })
   })
+  app.get("/postagens", (req,res)=>{
+    Postagem.find().then((postagens)=>{
+      res.render("categorias/postagens", {postagens: postagens})
+    }).catch((err)=>{
+      req.flash("error_msg", "Houve um erro interno")
+      res.redirect("/")
+    })
+  })
+
+
+
   app.get("/categorias/:slug", (req,res)=>{
     Categoria.findOne({slug: req.params.slug}).then((categoria)=>{
       if(categoria){
